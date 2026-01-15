@@ -38,7 +38,7 @@
                 </ul>
             </section>
             <section>
-                <h4>More importantly!</h4>
+                <h4>BUT</h4>
                 <div class="fragment">y tho<br>😐<br>🤝<br>🪑</div>
                 <aside class="notes">
                     <ul>
@@ -63,7 +63,8 @@
                 <ul>
                     <li class="fragment">Programming languages 'interpret' plain text commands</li>
                     <li class="fragment">IDEs are essentially text editors (like notepad)</li>
-                    <li class="fragment">They also package useful functionality that helps you edit and understand code, as well as code execution, building or visualisation tools</li>
+                    <li class="fragment">They also package useful functionality that helps you edit and understand code,
+                        as well as code execution, building or visualisation tools</li>
                 </ul>
             </section>
             <section>
@@ -78,25 +79,48 @@
                 </ul>
             </section>
             <section>
+                <h4>Some useful terms:</h4>
+                Syntax
+                <ul>
+                    <li>Defines the <b>structure</b> of the language</li>
+                    <li class="fragment">What symbols mean</li>
+                    <li class="fragment">What are valid orders of symbols</li>
+                    <li class="fragment">What are valid relationships between symbols</li>
+                </ul>
+            </section>
+            <section>
                 <h4>Introducing Thonny</h4>
                 <a href="https://thonny.org">https://thonny.org</a>
                 <iframe data-src="https://thonny.org/" width="100%" height="500"></iframe>
             </section>
             <section>
                 <h4>Editor sections</h4>
-                <img alt="The thonny interface, with the two important sections marked and labelled. The top section is labelled 'script area', and the bottom section is labelled 'shell (interpreter) area'" src="assets/thonny-sections.png" height="500" />
+                <img alt="The thonny interface, with the two important sections marked and labelled. The top section is labelled 'script area', and the bottom section is labelled 'shell (interpreter) area'"
+                    src="assets/thonny-sections.png" height="500" />
             </section>
             <section>
                 <h4>Hello World!</h4>
-                <img alt="The text 'print('hello world')', written into the shell area" src="assets/hello-world.png" height="500" />
+                <img alt="The text 'print('hello world')', written into the shell area" src="assets/hello-world.png"
+                    height="500" />
             </section>
             <section>
                 <h4>Writing a script</h4>
-                <img alt="The text 'print('hello world')', written into the script area, with the 'run' button on the thonny interface highlighted in green" src="assets/scripting-run.png" height="500" />
+                <img alt="The text 'print('hello world')', written into the script area, with the 'run' button on the thonny interface highlighted in green"
+                    src="assets/scripting-run.png" height="500" />
             </section>
-            <section><p>After clicking the run button you'll be prompted to save the script as a text file</p>
-                <img alt="Thonny's save prompt. The script has been named 'hello-world.py' and is being saved into a folder titled 'python-workshop' with the date appended" src="assets/scripting-save.png" height="300" />
+            <section>
+                <p>After clicking the run button you'll be prompted to save the script as a text file</p>
+                <img alt="Thonny's save prompt. The script has been named 'hello-world.py' and is being saved into a folder titled 'python-workshop' with the date appended"
+                    src="assets/scripting-save.png" height="300" />
                 <p>Make sure to save the script with a memorable name!</p>
+            </section>
+            <section>
+                <h4>Take some time to explore!</h4>
+                <ul>
+                    <li>Change the text</li>
+                    <li>Add new lines</li>
+                    <li>Break things!</li>
+                </ul>
             </section>
             <section>
                 <h4>We've learned:</h4>
@@ -110,6 +134,62 @@
             <section>
                 <h3>Loops ➿ </br>&</br>Indentation ⇥</h3>
             </section>
+            <section>
+                <p>How do we automate repetitive tasks?</p>
+
+                <div class="fragment">
+                    <p>Let's try to recreate this output:</p>
+                    <pre>
+                    <code data-trim class="language-python">
+                    Loop starting!
+                    Loop number 1
+                    Loop number 2
+                    Loop number 3
+                    Loop number 4
+                    Loop number 5
+                    Loop number 6
+                    Loop number 7
+                    Loop number 8
+                    Loop number 9
+                    Loop number 10
+                    Loop finished!
+                    </code>
+                </pre>
+                </div>
+            </section>
+            <section>
+                <h4>Python syntax for looping:</h4>
+                <pre><code data-trim class="language-python" data-line-numbers="1|2-3|4">
+                print("Loop starting!")
+                for i in range(10):
+                    print("Loop number ", i)
+                print("Loop finished!")
+                </code></pre>
+                <p>Note the indentation ⇥ before the <code>print</code> statement</p>
+                <p>This indentation is achieved using the <code>tab</code> key</p>
+                <p class="fragment">The final line is not indented, and therefore is not a part of the loop</p>
+            </section>
+            <section>
+                <p>Try experimenting with indentation and with other parts of the code</p>
+                <p class="fragment">Note there's an offset on the numbers that are output! How could we fix that?</p>
+            </section>
+            <section>
+                Python can also loop indefinitely with e.g.
+                <pre><code data-trim class="language-python">
+                while True:
+                    print("I'm looping!")
+                </code></pre>
+                Running an infinite loop (which you might do by accident as well as on purpose!) can be stopped with the
+                STOP ⛔ button in thonny.
+            </section>
+            <section>
+                <h4>We've learned:</h4>
+                <ul>
+                    <li>How to use python to execute tasks in a loop</li>
+                    <li>How we can track the number of loops (iterations)</li>
+                    <li>We've encountered our first variable <code>i</code>!</li>
+                </ul>
+                <p><br>Congratulations 🎉</p </section>
         </div>
     </div>
 
