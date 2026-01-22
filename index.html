@@ -194,10 +194,10 @@
             <section>
                 Automation isn't just about repetition, it's also about making decison based on available data:
                 <pre><code data-trim class="language-python">
-if forecast is "rain":
-    print("I'm bringing my umbrella! ☂️")
+if forecast == "rain":
+    print("🤖💬 I'm bringing my umbrella! ☂️")
 else:
-    print("I'm bringing my hockey gear! 🏑")
+    print("🤖💬 I'm bringing my hockey gear! 🏑")
                 </code></pre>
                 Note here that <br><code style="color: #ddd; background-color: #272822">forecast</code><br> can be <code>"rain"</code> <b>or</b> it could be something else!<br>e.g. <code>"sun"</code>, <code>"thunderstorm"</code> etc.
             </section>
@@ -244,8 +244,56 @@ showers
                 </p>
             </section>
             <section>
-                <h3> Conditionals!
+                <h3> Conditionals:
                 </h3>
+                Let's use the <code>input()</code> function to get info from world outside our script:
+                <pre><code data-trim class="language-python" data-line-numbers="1|2|3-6">
+forecast = input("What's the forecast?")
+print("The forecast is: ", forecast)
+if forecast == "rain":
+    print("I'm bringing my umbrella!️")
+else:
+    print("I'm bringing my hockey gear!")
+                </code></pre>
+                Run the script, and it will prompt you for a forecast - see if the program responds as you expect it to.
+            </section>
+            <section>
+                <h3>Comparisons:</h3>
+                <pre><code data-trim class="language-python">
+if forecast == "rain":
+                </code></pre>
+                Note <code>==</code> here is a comparison operator. It compares the left hand sides of the statement.
+                Some other operators are:
+                <ul>
+                    <li>
+                        <code>!=</code> for 'not equal'
+                    </li>
+                    <li>
+                        <code><</code> for comparing numbers (less than)
+                    </li>
+                    <li>
+                        <code>></code> for comparing numbers (greater than)
+                    </li>
+                </ul>
+            </section>
+            <section>
+                Comparisons can also be used inside loops:
+                <pre><code data-trim class="language-python">
+while forecast != "sun":
+    print("I'm not going out there! Try again!")
+    forecast = input("What is the forecast?")
+print("Let's go rollerskating!")
+                </code></pre>
+            </section>
+            <section>
+                <h4>We've learned:</h4>
+                <ul>
+                    <li>How to create and use variables</li>
+                    <li>How to use <code>if/else</code> structures to make programmatic decisions</li>
+                    <li>How to use the <code>input()</code> function to get user input</li>
+                </ul>
+                <p><br>Congratulations 🎉</p
+
             </section>
         </div>
     </div>
