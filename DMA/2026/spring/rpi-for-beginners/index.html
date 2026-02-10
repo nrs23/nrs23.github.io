@@ -42,12 +42,15 @@
                     <li class="fragment">How to execute basic programs in Python 🐍</li>
                     <li class="fragment">How to detect button presses 🔘</li>
                     <li class="fragment">How to flash an "LED" light 💡</li>
-                    <li class="fragment">How to flash an "LED" light with a button 💥</li>
+                    <li class="fragment">How to flash an "LED" light with a button press 💥</li>
                 </ul>
             </section>
             <section>
                 <h4>BUT</h4>
                 <div class="fragment">y tho<br>😐<br>🤝<br>🪑</div>
+            </section>
+            <section>
+                <img alt="The Queer Code Breakers arcade machine " src="assets/QCB.JPG" width="380" />
             </section>
             <section>
                 <h4>Some useful terms:</h4>
@@ -123,29 +126,6 @@
                 <p>Make sure to save the script with a memorable name!</p>
             </section>
             <section>
-                <p>🌟
-                </p>
-                <h4>A note on functions:
-                </h4>
-                <code>print(...)</code> is what's known as a <b>function</b> in programming.
-                <p class="fragment" >You can tell a function by the common structure:<br>
-                    <code>function_name(arg1, arg2, ...)</code></p>
-                <p class="fragment" >Functions are a way of packaging many lines of code into one</p>
-                <p class="fragment" >This makes code easier to read/understand, and easier to share!</p>
-            </section>
-            <section>
-                <p>🌟
-                </p>
-                <h4>A note on functions:
-                </h4>
-                <ul>
-                    <li class="fragment">There are many functions in python that do useful things (like print to the screen)</li>
-                    <li class="fragment">We'll come across a few more in this session</li>
-                    <li class="fragment">We can even write our own functions using python!</li>
-                    <li class="fragment">This however, is the subject of an intermediate class</li>
-                </ul>
-            </section>
-            <section>
                 <h4>We've learned:</h4>
                 <ul>
                     <li>How to print "hello world" in python</li>
@@ -155,201 +135,128 @@
                 <p><br>Congratulations 🎉</p>
             </section>
             <section>
+                <h3>Electronic circuits</h3>
+                <img alt="A circuit diagram showing an LED light powered by a battery" src="assets/led_on_bb.png" width="500" />
+            </section>
+            <section>
+                <h3>Electronic circuits</h3>
+                <img alt="A circuit diagram showing an LED light powered by a battery - one of the wires is not connected" src="assets/led_off_bb.png" width="500" />
+            </section>
+            <section>
+                <h3>Components</h3>
+                <img alt="An LED, a push button and a resistor" src="assets/components.png" width="800" />
+                <table width="800">
+                    <tr>
+                        <td width="220">LED</td><td>Push button</td><td>Resistor</td>
+                    </tr>
+                </table>
+                <p>*LED: "light emitting diode"</p>
+            </section>
+            <section>
                 <h3>Introducing the GPIO header</h3>
                 <img alt="GPIO socket on the rpi labelled with corresponding pin numbers and names" src="assets/gpio.png" width="800" />
             </section>
             <section><img alt="GPIO socket on the rpi labelled with corresponding pin numbers and names" src="assets/gpio-up.png" width="210" />
             </section>
             <section>
-                <p>How do we automate repetitive tasks?</p>
-                <div class="fragment">
-                    <p>Let's try to recreate this output:</p>
-                    <pre>
-                    <code data-trim class="language-python">
-                    Loop starting!
-                    Loop number 1
-                    Loop number 2
-                    Loop number 3
-                    Loop number 4
-                    Loop number 5
-                    Loop number 6
-                    Loop number 7
-                    Loop number 8
-                    Loop number 9
-                    Loop number 10
-                    Loop finished!
-                    </code>
-                </pre>
-                </div>
+                <h3>What does it all mean!?</h3>
+                    <table>
+                        <tr>
+                            <td>3V3/5V:</td>
+                            <td>An 'always on' source of 3.3 or 5 Volt power, like the positive end of a battery</td>
+                        </tr>
+                        <tr>
+                            <td>Ground (GND):</td><td>A ground connection used to complete a circuit, like the negative end of a battery</td>
+                        </tr>
+                        <tr>
+                            <td>GPIO XX</td><td>General-purpose input/output pins, available to control via code!</td>
+                        </tr>
+                    </table>
             </section>
             <section>
-                <h4>Python syntax for looping:</h4>
-                <pre><code data-trim class="language-python" data-line-numbers="1|2-3|4">
-                print("Loop starting!")
-                for i in range(10):
-                    print("Loop number ", i)
-                print("Loop finished!")
-                </code></pre>
-                <p>Note the indentation ⇥ before the <code style="color: #ddd; background-color: #272822">print</code> statement</p>
-                <p>This indentation is achieved using the <code style="color: #ddd; background-color: #272822">tab</code> key</p>
-                <p class="fragment">The final line is not indented, and therefore is not a part of the loop</p>
+                <h3>Our first circuit: Testing the LED</h3>
+                <img alt="Circuit diagram for testing LED" src="assets/led_test.png" width="500" />
             </section>
             <section>
-                <p>Try experimenting with indentation and with other parts of the code</p>
-                <p class="fragment">Note there's an offset on the numbers that are output! How could we fix that?</p>
+                <h3>Hooking up to the GPIO</h3>
+                <img alt="Circuit diagram for controlling LED" src="assets/led_gpio.png" width="500" />
             </section>
             <section>
-                <p>🌟
-                </p>
-                <h3>A note on comments</h3>
-                "Comments" are text that you can insert into you program that are <b>not</b> processed by the interpreter. In python they start with the <code>#</code> character:
-                <pre><code data-trim class="language-python" >
-# Here's where we start the loop:
-for i in range(10):
-    print("Loop # ", i) # Don't forget that `i` starts at 0!
+                <h3>LED control</h3>
+                In the shell/interpreter area:
+                <pre><code data-trim class="language-python" data-line-numbers="1|2|3|4">
+>>> from gpiozero import LED
+>>> led = LED(25)
+>>> led.on()
+>>> led.off()
                 </code></pre>
             </section>
             <section>
-                <p>🌟
-                </p>
-                <h3>A note on comments</h3>
-                <p>Comments help you and others understand your code</p>
-                <p>This can be increasingly important for more complex code, but also code that you expect to maintain or change many years down the line</p>
-            </section>
-            <section>
-                Python can also loop indefinitely with e.g.
+                <h3>As a reusable script:</h3>
                 <pre><code data-trim class="language-python">
-                while True:
-                    print("I'm looping!")
+from gpiozero import LED
+from time import sleep
+
+led = LED(25)
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
                 </code></pre>
-                Running an infinite loop (which you might do by accident as well as on purpose!) can be stopped with the
-                STOP ⛔ button in thonny.
+
             </section>
             <section>
-                <h4>We've learned:</h4>
-                <ul>
-                    <li>How to use python to execute tasks in a loop</li>
-                    <li>How we can track the number of loops (iterations)</li>
-                    <li>We've encountered our first variable <code style="color: #ddd; background-color: #272822">i</code>!</li> (more on these in the next section!)
-                </ul>
-                <p><br>Congratulations 🎉</p>
+                <h3>Solderless Breadboards</h3>
+                <img alt="A side by side comparison of a breadboard's front and back, demonstrating how the sockets on the front are connected via metal strips at the back"
+                    src="assets/breadboard-connections.jpg" width="800" />
             </section>
             <section>
-                <h3>Conditionals ❓<br>&<br>Variables 📦<h3>
+                <h3>Reading a button press</h3>
+                <img alt="Circuit diagram for reading a button press" src="assets/button_gpio_bb.png" width="500" />
             </section>
             <section>
-                Automation isn't just about repetition, it's also about making decison based on available data:
-                <pre><code data-trim class="language-python">
-if forecast == "rain":
-    print("🤖💬 I'm bringing my umbrella! ☂️")
-else:
-    print("🤖💬 I'm bringing my hockey gear! 🏑")
-                </code></pre>
-                Note here that <br><code style="color: #ddd; background-color: #272822">forecast</code><br> can be <code>"rain"</code> <b>or</b> it could be something else!<br>e.g. <code>"sun"</code>, <code>"thunderstorm"</code> etc.
-            </section>
-            <section>
-                <ul>
-                    <li><code>forecast</code> is what's known as a variable!</li>
-                    <li>
-                        A variable is like a box 📦 that we can use to store things like strings or other objects using <b>assignment</b>
-                    </li>
-                </ul>
-                <pre><code data-trim class="language-python" data-line-numbers="1|2-3|4|5-6|7|8-9">
->>> forecast = "rain"
->>> print(forecast)
-rain
->>> forecast = "shine"
->>> print(forecast)
-shine
->>> forecast = get_weather_forecast("tomorrow")
->>> print(forecast)
-showers
+                <h3>The code:</h3>
+                <pre><code data-trim class="language-python" data-line-numbers="1|3|4|5">
+                from gpiozero import Button
+
+                button = Button(2)
+                button.wait_for_press()
+                print("You pushed me!")
                 </code></pre>
             </section>
             <section>
-                <ul>
-                    <li>
-                        We must give the box/variable a name
-                    </li>
-                    <li>
-                        here we used <code>forecast</code>, but it can be any series of alphanumeric characters or underscores
-                    </li>
-                    <li>
-                        and then we can refer to the contents of that box using this label.
-                    </li>
-                </ul>
-                <p>
-                </p>
+                <h3>Combining the button and LED</h3>
+                <img alt="Circuit diagram for controlling an LED with a button press" src="assets/button_led_control_gpio_bb.png" width="500" />
             </section>
             <section>
-                <p>🌟
-                </p>
-                <p>
-                    It's often useful to put some thought into the naming of variables - like comments, good variable naming can help
-                    future developers (including yourself) understand the code better.
-                </p>
-            </section>
-            <section>
-                <h3> Conditionals:
-                </h3>
-                Let's use the <code>input()</code> function to get info from world outside our script:
-                <pre><code data-trim class="language-python" data-line-numbers="1|2|3-6">
-forecast = input("What's the forecast?")
-print("The forecast is: ", forecast)
-if forecast == "rain":
-    print("I'm bringing my umbrella!️")
-else:
-    print("I'm bringing my hockey gear!")
-                </code></pre>
-                Run the script, and it will prompt you for a forecast - see if the program responds as you expect it to.
-            </section>
-            <section>
-                <h3>Comparisons:</h3>
-                <pre><code data-trim class="language-python">
-if forecast == "rain":
-                </code></pre>
-                Note <code>==</code> here is a comparison operator. It compares the left hand sides of the statement.
-                Some other operators are:
-                <ul>
-                    <li>
-                        <code>!=</code> for 'not equal'
-                    </li>
-                    <li>
-                        <code><</code> for comparing numbers (less than)
-                    </li>
-                    <li>
-                        <code>></code> for comparing numbers (greater than)
-                    </li>
-                </ul>
-            </section>
-            <section>
-                Comparisons can also be used inside loops:
-                <pre><code data-trim class="language-python">
-while forecast != "sun":
-    print("I'm not going out there! Try again!")
-    forecast = input("What is the forecast?")
-print("Let's go rollerskating!")
+                <h3>Controlling the LED with the button</h3>
+                Add these lines:
+                <pre><code data-trim class="language-python" data-line-numbers="1-2|6|9-11|1-11">
+from gpiozero import LED
+from time import sleep
+from gpiozero import Button
+
+button = Button(2)
+led = LED(25)
+
+button.wait_for_press()
+led.on()
+sleep(3)
+led.off()
                 </code></pre>
             </section>
             <section>
                 <h4>We've learned:</h4>
                 <ul>
-                    <li>How to create and use variables</li>
-                    <li>How to use <code>if/else</code> structures to make programmatic decisions</li>
-                    <li>How to use the <code>input()</code> function to get user input</li>
+                    <li>How to build basic electronic circuits and test them</li>
+                    <li>How to use a breadboard to prototype circuitry</li>
+                    <li>How to write code that controls lights and reads buttons</li>
                 </ul>
                 <p><br>Congratulations 🎉</p>
             </section>
             <section>
-                <h3>Bonus exercises to take home:</h3>
-                <h3>Turtle art 🐢🎨</h3>
-
-                <p>You now know more than enough to start taking on a wide range of beginners programming projects.</p>
-
-                <p>A great place to continue with what we've done today is the <a href="https://projects.raspberrypi.org/en/">raspberry pi club</a></p>
-            </section>
-            <section>
-                <h3>Bonus exercises to take home:</h3>
+                <h3>Useful resources</h3>
                 <h3>Turtle art 🐢🎨</h3>
 
                 <p>We recommend having a look at the the following drawing projects as a leg up into the world of digital art:</p>
